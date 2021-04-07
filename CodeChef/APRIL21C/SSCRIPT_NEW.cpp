@@ -7,24 +7,18 @@ int main()
     cin >> t;
     while (t--)
     {
-        long int n, k;
+        long int n, k,count=0;
         cin >> n >> k;
         char *a;
         a = (char*)malloc(n*sizeof(char));
         for (long int i = 0; i < n; i++)
-            cin >> *(a+i);
-
-        for (long int i = 0; i < n; i++)
         {
-            long int count = 0;
-            if (a[i] == '*')
-            {
-                for (long int j = i; j < i + k; j++)
-                {
-                    if (a[j] == '*')
-                        count++;
-                }
-            }
+            cin >> *(a+i);
+            if ((a[i] == '*' && a[i-1] == '*') || (a[i] == '*' && count == 0))
+                count++;
+            else
+                count = 0;
+
             if (count == k)
             {
                 cout << "YES\n";
