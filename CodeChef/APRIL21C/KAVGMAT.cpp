@@ -14,27 +14,27 @@ int main()
     {
         ll m, n, k,count = 0;
         cin >> n >> m >> k;
-        double mat[n+1][m+1];
+        double a[n+1][m+1];
         for(ll i=0; i<=n; i++){
             for(ll j=0; j<=m; j++){
-                if(i==0 || j==0) mat[i][j] = 0;
-                else cin >> mat[i][j];
+                if(i==0 || j==0) a[i][j] = 0;
+                else cin >> a[i][j];
             }
         }
         /*Adding along Rows */
         for(ll i=0; i<=n; i++){
-            double pre = 0;
+            double temp = 0;
             for(ll j=0; j<=m; j++){
-                mat[i][j] += pre;
-                pre = mat[i][j];
+                a[i][j] += temp;
+                temp = a[i][j];
             }
         }
         /*Adding along Columns */
         for(ll j=0; j<=m; j++){
-            double pre = 0;
+            double temp = 0;
             for(ll i=0; i<=n; i++){
-                mat[i][j] += pre;
-                pre = mat[i][j];
+                a[i][j] += temp;
+                temp = a[i][j];
             }
         }
         /*Checking for average*/
@@ -42,7 +42,7 @@ int main()
         for(ll len=1; len<=min; len++){
             for(ll i=len; i<=n; i++){
                 for(ll j=len; j<=m; j++){
-                    if((mat[i][j] + mat[i-len][j-len] - mat[i][j-len] - mat[i-len][j])/(len*len) >= k)
+                    if((a[i][j] + a[i-len][j-len] - a[i][j-len] - a[i-len][j])/(len*len) >= k)
                         count++;
                 }
             }
