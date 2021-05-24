@@ -21,21 +21,26 @@ using mcc = map<char, char>;
 using vll = vector<ll>;
 using vch = vector<char>;
 
-void solve()
+void Solve()
 {
-    int D,d,A,B,C;
-    ll result = 0;   
+    int D, d, A, B, C;
+    ll result = 0;
     cin >> D >> d >> A >> B >> C;
-    if (d * D >= 10){
+    if (d * D >= 10)
+    {
         result = A;
     }
-    if(d * D >= 21){
-        if(B > result){
+    if (d * D >= 21)
+    {
+        if (B > result)
+        {
             result = B;
         }
     }
-    if(d * D >= 42){
-        if(C > result){
+    if (d * D >= 42)
+    {
+        if (C > result)
+        {
             result = C;
         }
     }
@@ -49,7 +54,7 @@ int main()
     cin >> t;
     while (t--)
     {
-        solve();
+        Solve();
     }
 
     return 0;
